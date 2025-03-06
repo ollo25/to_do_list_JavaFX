@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane prefHeight="369.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
+   <children>
+   
+                <Label fx:id="welcomeText" layoutX="92.0" layoutY="40.0" prefHeight="66.0" prefWidth="294.0" text="CONNEXION" textAlignment="RIGHT">
+         <font>
+            <Font name="Book Antiqua" size="45.0" />
+         </font>
+      </Label>
+      <TextField layoutX="168.0" layoutY="152.0" />
+      <Label layoutX="122.0" layoutY="154.0" prefHeight="13.0" prefWidth="80.0" text="Email:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField layoutX="168.0" layoutY="231.0" />
+      <Label layoutX="68.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="131.0" layoutY="324.0"  text="Vous avez déja un compte ? Connexion" />
+   </children>
+</Pane>
