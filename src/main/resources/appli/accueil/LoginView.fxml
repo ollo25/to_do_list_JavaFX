@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane prefHeight="369.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
+<Pane prefHeight="379.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
    <children>
    
                 <Label fx:id="welcomeText" layoutX="92.0" layoutY="40.0" prefHeight="66.0" prefWidth="294.0" text="CONNEXION" textAlignment="RIGHT">
@@ -15,18 +16,25 @@
             <Font name="Book Antiqua" size="45.0" />
          </font>
       </Label>
-      <TextField layoutX="168.0" layoutY="152.0" />
-      <Label layoutX="122.0" layoutY="154.0" prefHeight="13.0" prefWidth="80.0" text="Email:">
+      <TextField fx:id="email" layoutX="167.0" layoutY="152.0" promptText="email" />
+      <Label layoutX="122.0" layoutY="154.0" prefHeight="21.0" prefWidth="44.0" text="Email:">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="168.0" layoutY="231.0" />
-      <Label layoutX="68.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
+      <Label layoutX="72.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-      <Hyperlink layoutX="131.0" layoutY="324.0"  text="Vous avez déja un compte ? Connexion" />
+      <Hyperlink layoutX="131.0" layoutY="324.0" text="Vous n'avez pas de compte ? Connexion" />
+      <Button layoutX="196.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#connexion" text="Se connecter" />
+      <PasswordField fx:id="mdp" layoutX="167.0" layoutY="231.0" promptText="mot de passe" />
+      <Hyperlink layoutX="179.0" layoutY="343.0" text="Mot de passe oublié ?" />
+      <Label layoutX="171.0" layoutY="256.0" prefHeight="21.0" prefWidth="137.0" text="mot de passe ou email incorrect" textFill="RED">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
