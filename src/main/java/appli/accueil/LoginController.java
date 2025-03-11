@@ -1,21 +1,43 @@
 package appli.accueil;
 
+import appli.StartApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class LoginController {
-    public TextField email;
-    public PasswordField mdp;
 
     @FXML
-    protected void connexion() {
-        String emailCo = email.getText();
-        String mdpCo = mdp.getText();
-        System.out.println(emailCo);
-        System.out.println(mdpCo);
+    private TextField emailCo;
+
+    @FXML
+    private Label erreurCo;
+
+    @FXML
+    private PasswordField mdpCo;
+
+    @FXML
+    void btnConnexion(ActionEvent event) {
+        String email = emailCo.getText();
+        String mdp = mdpCo.getText();
+        if(email.isEmpty() || mdp.isEmpty()) {
+            erreurCo.setText("Veuillez remplir tous les champs");
+        }
+        else {
+            if(mdp.equals("azerty1234") && email.equals("a@a.a")) {
+
+            }
+            erreurCo.setText("Les informations saisies sont incorrects");
+        }
     }
 
+    @FXML
+    void btnRedirectionInscription(ActionEvent event) throws IOException {
+        StartApplication.changeScene("IncrisptionView.fxml", "Inscription");
+    }
 
 }
