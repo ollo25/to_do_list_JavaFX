@@ -20,14 +20,14 @@
          <Font name="System Italic" size="15.0" />
       </font>
    </Label>
-   <Label fx:id="mdpCo" layoutX="72.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
+   <Label layoutX="72.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
       <font>
          <Font name="System Italic" size="15.0" />
       </font>
    </Label>
-   <Hyperlink layoutX="131.0" layoutY="324.0" onAction="#btnRedirectionInscription" text="Vous n'avez pas de compte ? Inscription" />
+   <Hyperlink fx:id="redirection" layoutX="131.0" layoutY="324.0" onAction="#btnRedirectionInscription" text="Vous n'avez pas de compte ? Inscription" />
    <Button layoutX="196.0" layoutY="277.0" mnemonicParsing="false" onAction="#btnConnexion" text="Se connecter" />
-   <PasswordField fx:id="mdp" layoutX="167.0" layoutY="231.0" promptText="mot de passe" />
+   <PasswordField fx:id="mdpCo" layoutX="167.0" layoutY="231.0" promptText="mot de passe" />
    <Hyperlink layoutX="179.0" layoutY="343.0" text="Mot de passe oublié ?" />
    <Label fx:id="erreurCo" alignment="CENTER" layoutX="114.0" layoutY="256.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
       <font>

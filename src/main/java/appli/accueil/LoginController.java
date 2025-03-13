@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Hyperlink;
+
 
 import java.io.IOException;
 
@@ -19,6 +21,8 @@ public class LoginController {
 
     @FXML
     private PasswordField mdpCo;
+    @FXML
+    private Hyperlink redirection;
 
     @FXML
     void btnConnexion(ActionEvent event) {
@@ -29,7 +33,7 @@ public class LoginController {
         }
         else {
             if(mdp.equals("azerty1234") && email.equals("a@a.a")) {
-
+                System.out.println("Vous etes connecté");
             }
             erreurCo.setText("Les informations saisies sont incorrects");
         }
@@ -37,7 +41,7 @@ public class LoginController {
 
     @FXML
     void btnRedirectionInscription(ActionEvent event) throws IOException {
-        StartApplication.changeScene("IncrisptionView.fxml", "Inscription");
+        StartApplication.changeScene("accueil/Inscription", "Inscription");
     }
 
 }
