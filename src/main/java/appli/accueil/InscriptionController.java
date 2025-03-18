@@ -7,9 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import model.Utilisateur;
+import repository.UtilisateurRepository;
+
 import java.io.IOException;
 
 public class InscriptionController {
+    private UtilisateurRepository UtilisateurRepository = new UtilisateurRepository();
 
     @FXML
     private TextField emailInscription;
@@ -30,28 +34,25 @@ public class InscriptionController {
     private TextField prenom;
 
     @FXML
-    void btnInscription(ActionEvent event) {
-        if(prenom.getText().isEmpty() || nom.getText().isEmpty() || mdpInscription.getText().isEmpty() || mdpConfirmationInscription.getText().isEmpty() || mdpInscription.getText().isEmpty() || emailInscription.getText().isEmpty()) {
+    void btnInscription(ActionEvent event) throws IOException{
+        if (prenom.getText().isEmpty() || nom.getText().isEmpty() || mdpInscription.getText().isEmpty() || mdpConfirmationInscription.getText().isEmpty() || mdpInscription.getText().isEmpty() || emailInscription.getText().isEmpty()) {
             erreurIn.setText("Veuillez remplir tous les champs");
-        }
-        else {
-            if(mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
-                System.out.println("Bien joué, tu es inscrit");
-                System.out.println(prenom.getText());
-                System.out.println(nom.getText());
-                System.out.println(emailInscription.getText());
-                System.out.println(mdpInscription.getText());
-            }
-            else {
-                erreurIn.setText("Les mots de passes ne correspondent pas");
-            }
+        } else if (!mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
+            erreurIn.setText("Les mots de passe ne correspondent pas");
+        } else if (mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
+            Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpInscription.getText(), "user");
+            UtilisateurRepository.inscription(user);
+            StartApplication.changeScene("accueil/Login", "Connexion");
         }
 
+
     }
+
 
     @FXML
     void btnRedirectionConnexion(ActionEvent event) throws IOException {
         StartApplication.changeScene("accueil/Login", "Connexion");
     }
-
 }
+
+

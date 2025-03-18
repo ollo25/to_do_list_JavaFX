@@ -1,24 +1,31 @@
 package model;
 
-import jdk.jshell.execution.Util;
-
 public class Utilisateur {
-    private String idUser;
+    private int idUser;
     private String nom;
     private String prenom;
     private String email;
     private String mdp;
+    private String role;
 
-    public Utilisateur(String nom, String prenom, String email, String mdp) {
+    public Utilisateur(int idUser, String nom, String prenom, String email, String mdp, String role) {
+       this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.mdp = mdp;
+        this.role = role;
     }
-    public Utilisateur(String idUser, String nom, String prenom, String email, String mdp) {
-        this.idUser = idUser;
+
+    public Utilisateur(String nom, String prenom, String email, String mdp, String role) {
         this.nom = nom;
         this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+        this.role = role;
+    }
+
+    public Utilisateur(String email, String mdp) {
         this.email = email;
         this.mdp = mdp;
     }
@@ -34,11 +41,11 @@ public class Utilisateur {
                 '}';
     }
 
-    public String getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
@@ -72,5 +79,13 @@ public class Utilisateur {
 
     public void setMdp(String mdp) {
         this.mdp = mdp;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
