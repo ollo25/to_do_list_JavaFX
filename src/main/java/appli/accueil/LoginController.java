@@ -11,7 +11,7 @@ import javafx.scene.control.Hyperlink;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 import model.Utilisateur;
-
+import session.SessionUtilisateur;
 import java.io.IOException;
 
 public class LoginController {
@@ -38,9 +38,17 @@ public class LoginController {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             boolean reponseVerif = encoder.matches(mdpCo.getText(),infoUser.getMdp());
             if(reponseVerif) {
-                System.out.println("Vous etes connecté");
+                System.out.println("Connexion réussie pour : " + infoUser.getNom());
+                SessionUtilisateur.getInstance().sauvegardeSession(infoUser);
+                erreurCo.setVisible(false);
+                Utilisateur utilisateurActuel = SessionUtilisateur.getInstance().getUtilisateur();
+                if (utilisateurActuel != null) {
+                    System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
+                }
+
             }
             else {
+                erreurCo.setVisible(true);
                 erreurCo.setText("Les informations saisies sont incorrects");
             }
         }

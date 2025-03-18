@@ -3,7 +3,9 @@ package repository;
 import database.Database;
 import model.Utilisateur;
 
+import java.awt.image.AbstractMultiResolutionImage;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UtilisateurRepository {
     private Connection connexion;
@@ -51,6 +53,26 @@ public class UtilisateurRepository {
             System.out.println("Erreur");
         }
         return null;
+    }
+
+    public ArrayList<Utilisateur> recupererToutLesUtilisateurs() throws SQLException {
+        String sql = "SELECT * FROM utilisateur";
+        PreparedStatement stmt = connexion.prepareStatement(sql);
+        ResultSet infoRecup = stmt.executeQuery();
+        ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
+        while (infoRecup.next()){
+            Utilisateur user = new Utilisateur(
+            infoRecup.getInt("id_utilisateur"),
+                    infoRecup.getString("nom"),
+                    infoRecup.getString("prenom"),
+                    infoRecup.getString("email"),
+                    infoRecup.getString("mot_de_passe"),
+                    infoRecup.getString("role")
+            );
+            utilisateurs.add(user);
+        }
+
+        return utilisateurs;
     }
 
 }
