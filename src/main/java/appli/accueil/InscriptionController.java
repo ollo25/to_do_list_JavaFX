@@ -8,12 +8,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import model.Utilisateur;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
 import java.io.IOException;
 
 public class InscriptionController {
-    private UtilisateurRepository UtilisateurRepository = new UtilisateurRepository();
+    private UtilisateurRepository userRepo = new UtilisateurRepository();
 
     @FXML
     private TextField emailInscription;
@@ -40,8 +41,11 @@ public class InscriptionController {
         } else if (!mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
             erreurIn.setText("Les mots de passe ne correspondent pas");
         } else if (mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
-            Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpInscription.getText(), "user");
-            UtilisateurRepository.inscription(user);
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String mdpCrypte = encoder.encode(mdpInscription.getText());
+            Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpCrypte, "user");
+            boolean verifInscription = userRepo.inscription(user);
+            System.out.println("Inscription reussi");
             StartApplication.changeScene("accueil/Login", "Connexion");
         }
 

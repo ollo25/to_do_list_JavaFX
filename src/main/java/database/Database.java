@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public class Database {
     private static final String SERVEUR = "localhost";
-    private static final String NOM_BDD = "lom_javafxTP";
+    private static final String NOM_BDD = "lom_javafxtp";
     private static final String UTILISATEUR = "root";
     private static final String MOT_DE_PASSE = "";
     private static String getUrl() {

@@ -1,9 +1,7 @@
 package repository;
 
 import database.Database;
-import jdk.jshell.execution.Util;
 import model.Utilisateur;
-import model.UtilisateurListe;
 
 import java.sql.*;
 
@@ -12,8 +10,8 @@ public class UtilisateurRepository {
     public UtilisateurRepository() {
         this.connexion = Database.getConnexion();
     }
-    public void inscription(Utilisateur utilisateur) {
-        String sql = "INSERT INTO utilisateur (nom, prenom, email, mdp) VALUES (?, ?, ?, ?, ?)";
+    public boolean inscription(Utilisateur utilisateur) {
+        String sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe,role) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, utilisateur.getNom());
@@ -23,12 +21,14 @@ public class UtilisateurRepository {
             stmt.setString(5, utilisateur.getRole());
             stmt.executeUpdate();
             System.out.println("Utilisateur ajouté avec succès !");
+            return true;
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+            return false;
         }
     }
 
-    public void recupererUserParEmail(String email) {
+    public Utilisateur recupererUserParEmail(String email) {
         String sql = "SELECT * FROM utilisateur WHERE email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
@@ -43,37 +43,14 @@ public class UtilisateurRepository {
                         infoRecup.getString("mot_de_passe"),
                         infoRecup.getString("role")
                 );
+                return user;
             }
 
         }
         catch (SQLException e){
             System.out.println("Erreur");
         }
-    }
-
-    public void connexion(Utilisateur user) {
-        String sql = "SELECT * FROM utilisateur WHERE email = ? AND mot_de_passe = ?";
-        try {
-            PreparedStatement stmt = connexion.prepareStatement(sql);
-            stmt.setString(1, user.getEmail());
-            stmt.setString(2, user.getMdp());
-            ResultSet infoRecup = stmt.executeQuery();
-            if (infoRecup.next()) {
-                Utilisateur userCo = new Utilisateur(
-                        infoRecup.getInt("id_utilisateur"),
-                        infoRecup.getString("nom"),
-                        infoRecup.getString("prenom"),
-                        infoRecup.getString("email"),
-                        infoRecup.getString("mot_de_passe"),
-                        infoRecup.getString("role")
-                );
-                return userCo;
-            }
-
-        }
-        catch (SQLException e) {
-            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
-        }
+        return null;
     }
 
 }
