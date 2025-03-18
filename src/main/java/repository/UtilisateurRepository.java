@@ -55,23 +55,26 @@ public class UtilisateurRepository {
         return null;
     }
 
-    public ArrayList<Utilisateur> recupererToutLesUtilisateurs() throws SQLException {
+    public ArrayList<Utilisateur> recupererToutLesUtilisateurs() {
         String sql = "SELECT * FROM utilisateur";
-        PreparedStatement stmt = connexion.prepareStatement(sql);
-        ResultSet infoRecup = stmt.executeQuery();
         ArrayList<Utilisateur> utilisateurs = new ArrayList<>();
-        while (infoRecup.next()){
-            Utilisateur user = new Utilisateur(
-            infoRecup.getInt("id_utilisateur"),
-                    infoRecup.getString("nom"),
-                    infoRecup.getString("prenom"),
-                    infoRecup.getString("email"),
-                    infoRecup.getString("mot_de_passe"),
-                    infoRecup.getString("role")
-            );
-            utilisateurs.add(user);
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            ResultSet infoRecup = stmt.executeQuery();
+            while (infoRecup.next()) {
+                Utilisateur user = new Utilisateur(
+                        infoRecup.getInt("id_utilisateur"),
+                        infoRecup.getString("nom"),
+                        infoRecup.getString("prenom"),
+                        infoRecup.getString("email"),
+                        infoRecup.getString("mot_de_passe"),
+                        infoRecup.getString("role")
+                );
+                utilisateurs.add(user);
+            }
+        }catch (SQLException e){
+            System.out.println("Erreur");
         }
-
         return utilisateurs;
     }
 

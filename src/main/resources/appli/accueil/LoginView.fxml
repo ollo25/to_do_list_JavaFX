@@ -5,33 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="379.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
-   <Label layoutX="92.0" layoutY="40.0" prefHeight="66.0" prefWidth="294.0" text="CONNEXION" textAlignment="RIGHT">
-      <font>
-         <Font name="Book Antiqua" size="45.0" />
-      </font>
-   </Label>
-   <TextField fx:id="emailCo" layoutX="167.0" layoutY="152.0" promptText="email" />
-   <Label layoutX="122.0" layoutY="154.0" prefHeight="21.0" prefWidth="44.0" text="Email:">
-      <font>
-         <Font name="System Italic" size="15.0" />
-      </font>
-   </Label>
-   <Label layoutX="72.0" layoutY="233.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
-      <font>
-         <Font name="System Italic" size="15.0" />
-      </font>
-   </Label>
-   <Hyperlink fx:id="redirection" layoutX="131.0" layoutY="324.0" onAction="#btnRedirectionInscription" text="Vous n'avez pas de compte ? Inscription" />
-   <Button layoutX="196.0" layoutY="277.0" mnemonicParsing="false" onAction="#btnConnexion" text="Se connecter" />
-   <PasswordField fx:id="mdpCo" layoutX="167.0" layoutY="231.0" promptText="mot de passe" />
-   <Hyperlink layoutX="179.0" layoutY="343.0" text="Mot de passe oublié ?" />
-   <Label fx:id="erreurCo" alignment="CENTER" layoutX="114.0" layoutY="256.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
-      <font>
-         <Font size="9.0" />
-      </font>
-   </Label>
-</Pane>
+
+<AnchorPane prefHeight="342.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
+   <children>
+      <Label layoutX="70.0" layoutY="25.0" prefHeight="66.0" prefWidth="294.0" text="CONNEXION" textAlignment="RIGHT">
+         <font>
+            <Font name="Book Antiqua" size="45.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailCo" layoutX="143.0" layoutY="114.0" promptText="email" />
+      <Label layoutX="97.0" layoutY="116.0" prefHeight="21.0" prefWidth="44.0" text="Email:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="176.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="redirection" layoutX="106.0" layoutY="278.0" onAction="#btnRedirectionInscription" text="Vous n'avez pas de compte ? Inscription" />
+      <Button layoutX="174.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnConnexion" text="Se connecter" />
+      <PasswordField fx:id="mdpCo" layoutX="143.0" layoutY="174.0" promptText="mot de passe" />
+      <Hyperlink layoutX="155.0" layoutY="302.0" text="Mot de passe oublié ?" />
+      <Label fx:id="erreurCo" alignment="CENTER" layoutX="89.0" layoutY="209.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

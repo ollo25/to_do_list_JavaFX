@@ -4,6 +4,7 @@ module appli.todolistfx {
     requires java.sql;
     requires jdk.jshell;
     requires spring.security.crypto;
+    requires java.desktop;
 
 
     opens appli.accueil to javafx.fxml;

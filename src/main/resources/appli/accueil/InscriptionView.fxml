@@ -5,50 +5,53 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="492.0" prefWidth="478.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.InscriptionController">
-    <Label alignment="CENTER" layoutX="83.0" layoutY="40.0" prefHeight="66.0" prefWidth="313.0" text="INSCRIPTION" textAlignment="RIGHT">
-        <font>
-            <Font name="Book Antiqua" size="45.0" />
-        </font>
-    </Label>
-    <TextField fx:id="emailInscription" layoutX="167.0" layoutY="152.0" promptText="email" />
-    <Label layoutX="122.0" layoutY="154.0" prefHeight="21.0" prefWidth="44.0" text="Email:">
-        <font>
+
+<AnchorPane prefHeight="489.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.InscriptionController">
+   <children>
+       <Label alignment="CENTER" layoutX="83.0" layoutY="40.0" prefHeight="66.0" prefWidth="313.0" text="INSCRIPTION" textAlignment="RIGHT">
+           <font>
+               <Font name="Book Antiqua" size="45.0" />
+           </font>
+       </Label>
+       <TextField fx:id="emailInscription" layoutX="167.0" layoutY="152.0" promptText="email" />
+       <Label layoutX="122.0" layoutY="154.0" prefHeight="21.0" prefWidth="44.0" text="Email:">
+           <font>
+               <Font name="System Italic" size="15.0" />
+           </font>
+       </Label>
+       <Label layoutX="75.0" layoutY="280.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
+           <font>
+               <Font name="System Italic" size="15.0" />
+           </font>
+       </Label>
+       <Hyperlink layoutX="123.0" layoutY="433.0" onAction="#btnRedirectionConnexion" text="Vous avez deja un compte ? Connexion" />
+       <Button layoutX="199.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnInscription" text="S'inscrire" />
+       <PasswordField fx:id="mdpInscription" layoutX="167.0" layoutY="278.0" promptText="mot de passe" />
+       <Label fx:id="erreurIn" alignment="CENTER" layoutX="119.0" layoutY="353.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
+           <font>
+               <Font size="9.0" />
+           </font>
+       </Label>
+      <Label layoutX="72.0" layoutY="331.0" prefHeight="21.0" prefWidth="94.0" text="Confirmation: ">
+         <font>
             <Font name="System Italic" size="15.0" />
-        </font>
-    </Label>
-    <Label layoutX="75.0" layoutY="280.0" prefHeight="21.0" prefWidth="94.0" text="Mot de passe:">
-        <font>
+         </font>
+      </Label>
+      <PasswordField fx:id="mdpConfirmationInscription" layoutX="167.0" layoutY="329.0" promptText="mot de passe" />
+      <TextField fx:id="prenom" layoutX="167.0" layoutY="190.0" promptText="prenom" />
+      <Label layoutX="108.0" layoutY="192.0" prefHeight="21.0" prefWidth="58.0" text="Prénom:">
+         <font>
             <Font name="System Italic" size="15.0" />
-        </font>
-    </Label>
-    <Hyperlink layoutX="136.0" layoutY="435.0" onAction="#btnRedirectionConnexion" text="Vous avez deja un compte ? Connexion" />
-    <Button layoutX="199.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnInscription" text="S'inscrire" />
-    <PasswordField fx:id="mdpInscription" layoutX="167.0" layoutY="278.0" promptText="mot de passe" />
-    <Label fx:id="erreurIn" alignment="CENTER" layoutX="119.0" layoutY="353.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
-        <font>
-            <Font size="9.0" />
-        </font>
-    </Label>
-   <Label layoutX="72.0" layoutY="331.0" prefHeight="21.0" prefWidth="94.0" text="Confirmation: ">
-      <font>
-         <Font name="System Italic" size="15.0" />
-      </font>
-   </Label>
-   <PasswordField fx:id="mdpConfirmationInscription" layoutX="167.0" layoutY="329.0" promptText="mot de passe" />
-   <TextField fx:id="prenom" layoutX="167.0" layoutY="190.0" promptText="prenom" />
-   <Label layoutX="108.0" layoutY="192.0" prefHeight="21.0" prefWidth="58.0" text="Prénom:">
-      <font>
-         <Font name="System Italic" size="15.0" />
-      </font>
-   </Label>
-   <TextField fx:id="nom" layoutX="167.0" layoutY="233.0" promptText="nom" />
-   <Label layoutX="122.0" layoutY="236.0" prefHeight="21.0" prefWidth="44.0" text="Nom:">
-      <font>
-         <Font name="System Italic" size="15.0" />
-      </font>
-   </Label>
-</Pane>
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="167.0" layoutY="233.0" promptText="nom" />
+      <Label layoutX="122.0" layoutY="236.0" prefHeight="21.0" prefWidth="44.0" text="Nom:">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
