@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="602.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.AccueilAdminController">
+
+      <Label layoutX="230.0" layoutY="26.0" prefHeight="102.0" prefWidth="380.0" text="ACCUEIL">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <TableView layoutX="320.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" fx:id="tableauUtilisateur">
+        <columns>
+        </columns>
+      </TableView>
+
+</AnchorPane>

@@ -28,7 +28,7 @@ public class LoginController {
     private Hyperlink redirection;
 
     @FXML
-    void btnConnexion(ActionEvent event) {
+    void btnConnexion(ActionEvent event)throws IOException {
         if(emailCo.getText().isEmpty() || mdpCo.getText().isEmpty()) {
             erreurCo.setText("Veuillez remplir tous les champs");
         }
@@ -45,7 +45,7 @@ public class LoginController {
                 if (utilisateurActuel != null) {
                     System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
                 }
-
+                StartApplication.changeScene("accueil/Accueil", "Accueil");
             }
             else {
                 erreurCo.setVisible(true);

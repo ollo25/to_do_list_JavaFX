@@ -43,7 +43,11 @@ public class InscriptionController {
         } else if (mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String mdpCrypte = encoder.encode(mdpInscription.getText());
-            Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpCrypte, "user");
+            String role="user";
+            if(userRepo.nbUser()==0){
+                 role="admin";
+            }
+            Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpCrypte, role);
             boolean verifInscription = userRepo.inscription(user);
             System.out.println("Inscription reussi");
             StartApplication.changeScene("accueil/Login", "Connexion");

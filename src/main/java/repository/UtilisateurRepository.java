@@ -77,5 +77,53 @@ public class UtilisateurRepository {
         }
         return utilisateurs;
     }
+    public boolean deleteUser(String email){
+        String sql = "DELETE FROM utilisateur where id_utilisateur = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.executeUpdate();
+            System.out.println("Utilisateur supprimé avec succès !");
+            return true;
+        }catch (SQLException e){
+            System.out.println("Erreur");
+            return false;
+        }
+    }
+    public boolean mettreAJourUtilisateur(Utilisateur utilisateur) {
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, mot_de_passe = ?, role = ? WHERE email = ?";
 
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, utilisateur.getNom());
+            stmt.setString(2, utilisateur.getPrenom());
+            stmt.setString(3, utilisateur.getEmail());
+            stmt.setString(4, utilisateur.getMdp());
+            stmt.setString(5, utilisateur.getRole());
+            stmt.setString(6, utilisateur.getEmail());
+
+            stmt.executeUpdate();
+            System.out.println("Utilisateur mis à jour avec succès !");
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
+        }
+
+        return false;
+    }
+    public int nbUser(){
+        String sql = "SELECT count(id_utilisateur) AS nbUser FROM utilisateur";
+        try{
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            ResultSet infoRecup = stmt.executeQuery();
+            if(infoRecup.next()){
+                return infoRecup.getInt("nbUser");
+            }
+        }
+        catch (SQLException e){
+            System.out.println("Erreur");
+        }
+        return -1;
+    }
 }

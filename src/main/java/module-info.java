@@ -11,4 +11,5 @@ module appli.todolistfx {
     exports appli.accueil;
     exports appli;
     opens appli to javafx.fxml;
+    opens model to javafx.base;
 }
