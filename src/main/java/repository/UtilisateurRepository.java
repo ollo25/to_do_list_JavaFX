@@ -78,7 +78,7 @@ public class UtilisateurRepository {
         return utilisateurs;
     }
     public boolean deleteUser(String email){
-        String sql = "DELETE FROM utilisateur where id_utilisateur = ?";
+        String sql = "DELETE FROM utilisateur where email = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
             stmt.setString(1, email);
