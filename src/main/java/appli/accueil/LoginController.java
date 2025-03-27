@@ -45,7 +45,7 @@ public class LoginController {
                 if (utilisateurActuel != null) {
                     System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
                 }
-                StartApplication.changeScene("accueil/Accueil", "Accueil");
+                StartApplication.changeScene("accueil/AccueilAdmin", "Accueil");
             }
             else {
                 erreurCo.setVisible(true);

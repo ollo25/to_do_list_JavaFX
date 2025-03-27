@@ -10,7 +10,6 @@
 
 
 <AnchorPane prefHeight="489.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.InscriptionController">
-   <children>
        <Label alignment="CENTER" layoutX="83.0" layoutY="40.0" prefHeight="66.0" prefWidth="313.0" text="INSCRIPTION" textAlignment="RIGHT">
            <font>
                <Font name="Book Antiqua" size="45.0" />
@@ -53,5 +52,4 @@
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-   </children>
 </AnchorPane>
