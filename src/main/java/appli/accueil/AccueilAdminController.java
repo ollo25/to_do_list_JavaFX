@@ -1,22 +1,34 @@
 package appli.accueil;
 
+import appli.StartApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Utilisateur;
 import repository.UtilisateurRepository;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 public class AccueilAdminController implements Initializable {
+    private Utilisateur utilisateurSelected = null;
     UtilisateurRepository userRepo = new UtilisateurRepository();
     @FXML
     private TableView<Utilisateur> tableauUtilisateur;
+
+    @FXML
+    private Button btnSupprimer;
+
+    @FXML
+    private Button btnSwitchRole;
 
     public void initialize(URL location, ResourceBundle resources) {
         String [][] colonnes = {
@@ -30,7 +42,7 @@ public class AccueilAdminController implements Initializable {
         for ( int i = 0 ; i < colonnes.length ; i ++ ){
             //Création de la colonne avec le titre
             TableColumn<Utilisateur,String> maCol = new TableColumn<>(colonnes[i][0]);
-//Ligne permettant la liaison automatique de la cellule avec la propriété
+            //Ligne permettant la liaison automatique de la cellule avec la propriété
             maCol.setCellValueFactory(
                     new PropertyValueFactory<Utilisateur,String>(colonnes[i][1]));
             //Ajout de la colonne dans notre tableau
@@ -39,5 +51,35 @@ public class AccueilAdminController implements Initializable {
         ArrayList<Utilisateur> infoUsers = userRepo.recupererToutLesUtilisateurs();
         tableauUtilisateur.getItems().addAll(infoUsers);
     }
+
+    @FXML
+    void selected(MouseEvent event) throws IOException {
+        utilisateurSelected = tableauUtilisateur.getSelectionModel().getSelectedItem();
+
+        if (event.getClickCount() == 2) { // Vérifie si c'est un double-clic
+            if (utilisateurSelected != null) {
+
+                StartApplication.changeScene("accueil/modifUserAdmin", "Modification d'un Utilisateur");
+            }
+        }
+        else {
+            btnSupprimer.setVisible(true);
+            btnSupprimer.setDisable(false);
+        }
+    }
+
+    @FXML
+    void supprimerUser(ActionEvent event) {
+        userRepo.deleteUser(utilisateurSelected.getEmail());
+        tableauUtilisateur.getItems().remove(utilisateurSelected);
+        utilisateurSelected = null;
+        btnSupprimer.setDisable(true);
+    }
+
+    @FXML
+    void switchUser(ActionEvent event) {
+
+    }
+
 }
 
