@@ -55,11 +55,14 @@ public class AccueilAdminController implements Initializable {
     @FXML
     void selected(MouseEvent event) throws IOException {
         utilisateurSelected = tableauUtilisateur.getSelectionModel().getSelectedItem();
-
+        System.out.println(utilisateurSelected + "test");
         if (event.getClickCount() == 2) { // Vérifie si c'est un double-clic
             if (utilisateurSelected != null) {
-
-                StartApplication.changeScene("accueil/modifUserAdmin", "Modification d'un Utilisateur");
+                System.out.println("test reussite");
+                StartApplication.changeScene("accueil/ModifUserAdmin", "Modification d'un Utilisateur");
+                ModifUserAdminController controller = (ModifUserAdminController)
+                        StartApplication.getControllerFromStage();
+                controller.initData(utilisateurSelected);
             }
         }
         else {
@@ -78,7 +81,10 @@ public class AccueilAdminController implements Initializable {
 
     @FXML
     void switchUser(ActionEvent event) {
-
+        userRepo.deleteUser(utilisateurSelected.getEmail());
+        tableauUtilisateur.getItems().remove(utilisateurSelected);
+        utilisateurSelected = null;
+        btnSwitchRole.setDisable(true);
     }
 
 }

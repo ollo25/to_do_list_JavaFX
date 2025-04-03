@@ -48,7 +48,7 @@ public class InscriptionController {
                  role="admin";
             }
             Utilisateur user = new Utilisateur(nom.getText(), prenom.getText(), emailInscription.getText(), mdpCrypte, role);
-            boolean verifInscription = userRepo.inscription(user);
+            userRepo.inscription(user);
             System.out.println("Inscription reussi");
             StartApplication.changeScene("accueil/Login", "Connexion");
         }

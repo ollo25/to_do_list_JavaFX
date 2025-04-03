@@ -30,6 +30,13 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
+    public Utilisateur(String nom, String prenom, String email, int idUser) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.idUser = idUser;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +

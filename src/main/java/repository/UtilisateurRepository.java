@@ -90,17 +90,14 @@ public class UtilisateurRepository {
             return false;
         }
     }
-    public boolean mettreAJourUtilisateur(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, mot_de_passe = ?, role = ? WHERE email = ?";
-
+    public boolean mettreAJourUtilisateur(Utilisateur utilisateurModifier) {
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ? WHERE id_utilisateur = ?";
         try {
             PreparedStatement stmt = connexion.prepareStatement(sql);
-            stmt.setString(1, utilisateur.getNom());
-            stmt.setString(2, utilisateur.getPrenom());
-            stmt.setString(3, utilisateur.getEmail());
-            stmt.setString(4, utilisateur.getMdp());
-            stmt.setString(5, utilisateur.getRole());
-            stmt.setString(6, utilisateur.getEmail());
+            stmt.setString(1, utilisateurModifier.getNom());
+            stmt.setString(2, utilisateurModifier.getPrenom());
+            stmt.setString(3, utilisateurModifier.getEmail());
+            stmt.setInt(4, utilisateurModifier.getIdUser());
 
             stmt.executeUpdate();
             System.out.println("Utilisateur mis à jour avec succès !");
