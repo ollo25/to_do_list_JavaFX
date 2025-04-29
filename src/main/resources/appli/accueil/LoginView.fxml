@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="342.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
    <children>
       <Label layoutX="70.0" layoutY="25.0" prefHeight="66.0" prefWidth="294.0" text="CONNEXION" textAlignment="RIGHT">
@@ -30,7 +29,7 @@
       <Hyperlink fx:id="redirection" layoutX="106.0" layoutY="278.0" onAction="#btnRedirectionInscription" text="Vous n'avez pas de compte ? Inscription" />
       <Button layoutX="174.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnConnexion" text="Se connecter" />
       <PasswordField fx:id="mdpCo" layoutX="143.0" layoutY="174.0" promptText="mot de passe" />
-      <Hyperlink layoutX="155.0" layoutY="302.0" text="Mot de passe oublié ?" />
+      <Hyperlink fx:id="motDePasseOublie" layoutX="155.0" layoutY="302.0" onAction="#btnMdpOublie" text="Mot de passe oublié ?" />
       <Label fx:id="erreurCo" alignment="CENTER" layoutX="89.0" layoutY="209.0" prefHeight="21.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="9.0" />

@@ -123,4 +123,38 @@ public class UtilisateurRepository {
         }
         return -1;
     }
+    public boolean changerMdpAPartirEmail(Utilisateur utilisateur) {
+        String sql = "UPDATE utilisateur SET mot_de_passe = ? WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, utilisateur.getMdp());
+            stmt.setString(2, utilisateur.getEmail());
+            stmt.executeUpdate();
+            System.out.println("Mot de Passe de l'utilisateur modifier avec succes");
+            return true;
+        }catch (SQLException e){
+            System.out.println("Erreur");
+            return false;
+        }
+    }
+
+    public boolean verifDoublonEmail(String email){
+        String sql = "SELECT * FROM utilisateur WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet emailRecup = stmt.executeQuery();
+            if(emailRecup.next()){
+                System.out.println("Email simulaire trouvée");
+                return false;
+            }
+            else{
+                System.out.println("Pas de doublon");
+                return true;
+            }
+        }catch (SQLException e){
+            System.out.println("Erreur");
+            return false;
+        }
+    }
 }

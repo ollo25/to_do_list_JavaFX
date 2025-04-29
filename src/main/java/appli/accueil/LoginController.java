@@ -28,6 +28,9 @@ public class LoginController {
     private Hyperlink redirection;
 
     @FXML
+    private Hyperlink motDePasseOublie;
+
+    @FXML
     void btnConnexion(ActionEvent event)throws IOException {
         if(emailCo.getText().isEmpty() || mdpCo.getText().isEmpty()) {
             erreurCo.setText("Veuillez remplir tous les champs");
@@ -45,7 +48,13 @@ public class LoginController {
                 if (utilisateurActuel != null) {
                     System.out.println("Utilisateur connecté : " + utilisateurActuel.getNom());
                 }
-                StartApplication.changeScene("accueil/AccueilAdmin", "Accueil");
+                if(utilisateurActuel.getRole().equals("admin")) {
+                    StartApplication.changeScene("accueil/AccueilAdmin", "Accueil Administrateur");
+                }
+                else {
+                    StartApplication.changeScene("accueil/AccueilUser", "Accueil");
+                }
+
             }
             else {
                 erreurCo.setVisible(true);
@@ -57,6 +66,10 @@ public class LoginController {
     @FXML
     void btnRedirectionInscription(ActionEvent event) throws IOException {
         StartApplication.changeScene("accueil/Inscription", "Inscription");
+    }
+    @FXML
+    void btnMdpOublie(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/MotDePasseOublie", "Mot de passe oublié");
     }
 
 }

@@ -40,6 +40,10 @@ public class InscriptionController {
             erreurIn.setText("Veuillez remplir tous les champs");
         } else if (!mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
             erreurIn.setText("Les mots de passe ne correspondent pas");
+        } else if (!userRepo.verifDoublonEmail(emailInscription.getText())) {
+            erreurIn.setText("Email déja utilisée");
+        } else if (!emailInscription.getText().contains("@")) {
+            erreurIn.setText("Veuillez rentrez une email valide");
         } else if (mdpConfirmationInscription.getText().equals(mdpInscription.getText())) {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String mdpCrypte = encoder.encode(mdpInscription.getText());
