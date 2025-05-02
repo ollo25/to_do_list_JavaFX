@@ -157,4 +157,24 @@ public class UtilisateurRepository {
             return false;
         }
     }
+    public boolean verifUserExistant(String email){
+        String sql = "SELECT * FROM utilisateur WHERE email = ?";
+        try {
+            PreparedStatement stmt = connexion.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet emailRecup = stmt.executeQuery();
+            if(emailRecup.next()){
+                System.out.println("User existant");
+                return true;
+            }
+            else{
+                System.out.println("User non existant");
+                return false;
+            }
+        }catch (SQLException e){
+            System.out.println("Erreur");
+            return false;
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package appli.accueil;
 
+import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -9,8 +10,11 @@ import repository.UtilisateurRepository;
 import session.SessionUtilisateur;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.io.IOException;
+
 
 public class ModifMdpUserController {
+    private String emailConcerne;
 
     @FXML
     private PasswordField mdpActuel;
@@ -58,5 +62,7 @@ public class ModifMdpUserController {
             }
         }
     }
-
+    void btnRetour(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/ModifUser", "Modification de l'utilisateur");
+    }
 }

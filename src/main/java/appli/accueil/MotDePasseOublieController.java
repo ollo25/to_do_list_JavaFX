@@ -4,6 +4,7 @@ import appli.StartApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import model.Utilisateur;
+import repository.UtilisateurRepository;
 import service.EmailService;
 import session.SessionUtilisateur;
 import javafx.event.ActionEvent;
@@ -31,10 +32,17 @@ public class MotDePasseOublieController {
 
         }
         else{
+            UtilisateurRepository userRepository = new UtilisateurRepository();
+            if(userRepository.verifUserExistant(email)){
                 code = EmailService.genererCode();
                 EmailService.envoyerEmail(email, "Réinitialisation de mot de passe", "Votre code de réinitialisation est : " + code);
                 erreur.setVisible(true);
                 erreur.setText("Code envoyé à : " + email);
+            }
+            else{
+                erreur.setVisible(true);
+                erreur.setText("Le compte n'existe pas.");
+            }
 
         }
     }
@@ -46,16 +54,20 @@ public class MotDePasseOublieController {
         }
         else {
             if(codeEntree.getText().equals(code)){
-                StartApplication.changeScene("accueil/ModifUserAdmin", "Modification d'un Utilisateur");
-                ModifUserAdminController controller = (ModifUserAdminController)
+                StartApplication.changeScene("accueil/ModifMdpOublieUser", "Reinisialisation du mot de passe");
+                ModifMdpOublieUserController controller = (ModifMdpOublieUserController)
                         StartApplication.getControllerFromStage();
-                controller.initData(SessionUtilisateur.getInstance().getUtilisateur());
+                controller.initData(EmailNvMdp.getText());
             }
             else {
                 erreurCode.setVisible(true);
                 erreurCode.setText("Code incorrect");
             }
         }
+    }
+    @FXML
+    void btnRetour(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/Login", "Connexion");
     }
 
 }

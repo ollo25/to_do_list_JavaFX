@@ -33,4 +33,5 @@
         </Label>
    <Label fx:id="utilisateurConcerne" alignment="CENTER" layoutX="120.0" layoutY="93.0" prefHeight="18.0" prefWidth="228.0" />
    <Label fx:id="erreurIn" alignment="CENTER" layoutX="207.0" layoutY="259.0" prefHeight="18.0" prefWidth="44.0" />
+   <Button fx:id="btnRetour" layoutX="416.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnRetour" text="Retour" />
 </AnchorPane>

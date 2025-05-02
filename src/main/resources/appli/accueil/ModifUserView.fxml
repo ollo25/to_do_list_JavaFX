@@ -28,5 +28,5 @@
     </Label>
     <Label fx:id="erreurIn" alignment="CENTER" layoutX="124.0" layoutY="170.0" prefHeight="18.0" prefWidth="216.0" />
    <Hyperlink alignment="CENTER" layoutX="142.0" layoutY="228.0" onAction="#btnRedirectionModifMdp" prefHeight="23.0" prefWidth="180.0" text="Modifier son mot de passe" />
-   <Button layoutX="377.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnRetourAccueil" text="Retour Accueil" />
+   <Button fx:id="btnRetour" layoutX="416.0" layoutY="255.0" mnemonicParsing="false" onAction="#btnRetour" text="Retour" />
 </AnchorPane>

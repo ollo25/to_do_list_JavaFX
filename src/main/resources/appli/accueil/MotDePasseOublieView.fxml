@@ -28,4 +28,5 @@
    </Label>
    <Label fx:id="erreurCode" alignment="CENTER" layoutX="51.0" layoutY="235.0" prefHeight="21.0" prefWidth="379.0" />
    <Button layoutX="181.0" layoutY="256.0" mnemonicParsing="false" onAction="#ValiderCode" prefHeight="21.0" prefWidth="119.0" text="Valider" />
+   <Button fx:id="btnRetour" layoutX="416.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnRetour" text="Retour" />
 </AnchorPane>

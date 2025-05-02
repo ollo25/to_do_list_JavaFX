@@ -44,8 +44,8 @@ public class ModifUserController {
         StartApplication.changeScene("accueil/ModifMdpUser", "Modification du Mot de Passe");
     }
     @FXML
-    void btnRetourAccueil(ActionEvent event) throws IOException {
-        StartApplication.changeScene("accueil/AccueilUser", "Accueil");
+    void btnRetour(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/AccueilUser", "Connexion");
     }
 
     public void initialize() {
