@@ -56,6 +56,7 @@ public class ModifUserAdminController {
         prenomNv.setText(utilisateur.getPrenom());
         emailNv.setText(utilisateur.getEmail());
     }
+    @FXML
     void btnRetour(ActionEvent event) throws IOException {
         StartApplication.changeScene("accueil/AccueilAdmin", "Accueil Admin");
     }

@@ -71,5 +71,4 @@ public class LoginController {
     void btnMdpOublie(ActionEvent event) throws IOException {
         StartApplication.changeScene("accueil/MotDePasseOublie", "Mot de passe oublié");
     }
-
 }

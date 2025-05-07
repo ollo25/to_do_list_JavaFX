@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Utilisateur;
 import repository.UtilisateurRepository;
 import javafx.scene.input.MouseEvent;
+import session.SessionUtilisateur;
 
 import java.io.IOException;
 import java.net.URL;
@@ -86,6 +87,11 @@ public class AccueilAdminController implements Initializable {
         utilisateurSelected = null;
         btnSwitchRole.setDisable(true);
     }
-
+    @FXML
+    void btnDeconnexion(ActionEvent event) throws IOException {
+        SessionUtilisateur utilisateur = SessionUtilisateur.getInstance();
+        utilisateur.deconnecter();
+        StartApplication.changeScene("accueil/Login","Page de Connexion");
+    }
 }
 

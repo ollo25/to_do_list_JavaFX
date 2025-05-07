@@ -18,7 +18,7 @@ public class AccueilUserController {
 
     @FXML
     void btnConsulterListe(ActionEvent event) throws IOException {
-        StartApplication.changeScene("accueil/AccueilAdmin", "Accueil");
+        StartApplication.changeScene("accueil/ConsultationListeUser", "Accueil des Listes");
     }
 
     @FXML
