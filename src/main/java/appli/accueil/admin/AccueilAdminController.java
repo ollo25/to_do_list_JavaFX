@@ -1,4 +1,4 @@
-package appli.accueil;
+package appli.accueil.admin;
 
 import appli.StartApplication;
 import javafx.event.ActionEvent;
@@ -41,12 +41,9 @@ public class AccueilAdminController implements Initializable {
         };
 
         for ( int i = 0 ; i < colonnes.length ; i ++ ){
-            //Création de la colonne avec le titre
             TableColumn<Utilisateur,String> maCol = new TableColumn<>(colonnes[i][0]);
-            //Ligne permettant la liaison automatique de la cellule avec la propriété
             maCol.setCellValueFactory(
                     new PropertyValueFactory<Utilisateur,String>(colonnes[i][1]));
-            //Ajout de la colonne dans notre tableau
             tableauUtilisateur.getColumns().add(maCol);
         }
         ArrayList<Utilisateur> infoUsers = userRepo.recupererToutLesUtilisateurs();
@@ -57,7 +54,7 @@ public class AccueilAdminController implements Initializable {
     void selected(MouseEvent event) throws IOException {
         utilisateurSelected = tableauUtilisateur.getSelectionModel().getSelectedItem();
         System.out.println(utilisateurSelected + "test");
-        if (event.getClickCount() == 2) { // Vérifie si c'est un double-clic
+        if (event.getClickCount() == 2) {
             if (utilisateurSelected != null) {
                 System.out.println("test reussite");
                 StartApplication.changeScene("accueil/ModifUserAdmin", "Modification d'un Utilisateur");

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="343.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.MotDePasseOublieController">
+<AnchorPane prefHeight="343.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.mdpGestion.MotDePasseOublieController">
     <Label alignment="CENTER" layoutX="44.0" layoutY="36.0" prefHeight="70.0" prefWidth="379.0" text="REINITIALISATION" textAlignment="RIGHT">
         <font>
             <Font name="Book Antiqua" size="45.0" />

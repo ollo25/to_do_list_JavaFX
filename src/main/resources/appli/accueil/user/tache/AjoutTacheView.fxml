@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="250.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="appli.accueil.user.tache.AjoutTacheController">
+    <children>
+        <Label alignment="CENTER" layoutX="36.0" layoutY="20.0" prefHeight="51.0" prefWidth="459.0" text="VEUILLEZ AJOUTER UNE TÂCHE">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="nomTacheField" layoutX="191.0" layoutY="85.0" promptText="Nom de la tâche"/>
+
+        <ComboBox fx:id="etatCombo" layoutX="191.0" layoutY="125.0" prefWidth="150.0"/>
+
+        <Label fx:id="erreur" layoutX="128.0" layoutY="155.0" prefHeight="17.0" prefWidth="275.0" textFill="RED"/>
+
+        <Button fx:id="ajouterTache" layoutX="232.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnAjouterTache" text="Créer">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

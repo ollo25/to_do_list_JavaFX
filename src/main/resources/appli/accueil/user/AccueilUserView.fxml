@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="346.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.AccueilUserController">
+<AnchorPane prefHeight="346.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.user.AccueilUserController">
    <children>
       <Button fx:id="editerProfil" layoutX="116.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnEditionProfil" prefHeight="99.0" prefWidth="369.0" text="Edition de son Profil">
          <font>

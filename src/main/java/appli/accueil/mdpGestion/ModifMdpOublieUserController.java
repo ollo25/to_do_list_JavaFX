@@ -1,4 +1,4 @@
-package appli.accueil;
+package appli.accueil.mdpGestion;
 
 import appli.StartApplication;
 import javafx.event.ActionEvent;
@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import model.Utilisateur;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
-import session.SessionUtilisateur;
 
 import java.io.IOException;
 

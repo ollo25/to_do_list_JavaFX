@@ -1,12 +1,10 @@
-package appli.accueil;
+package appli.accueil.mdpGestion;
 
 import appli.StartApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import model.Utilisateur;
 import repository.UtilisateurRepository;
 import service.EmailService;
-import session.SessionUtilisateur;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 

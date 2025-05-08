@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="362.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.ModifMdpOublieUserController">
+<AnchorPane prefHeight="362.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.mdpGestion.ModifMdpOublieUserController">
    <children>
       <PasswordField fx:id="nvMdp" layoutX="208.0" layoutY="128.0" />
       <Label alignment="CENTER" layoutX="199.0" layoutY="107.0" prefHeight="21.0" prefWidth="167.0" text="Nouveau Mot de passe:">

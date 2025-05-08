@@ -1,4 +1,4 @@
-package appli.accueil;
+package appli.accueil.user;
 
 import appli.StartApplication;
 import javafx.event.ActionEvent;

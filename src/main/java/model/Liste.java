@@ -8,4 +8,17 @@ public class Liste {
         this.idListe = idListe;
         this.nom = nom;
     }
+
+    public int getIdListe() {
+        return idListe;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
 }

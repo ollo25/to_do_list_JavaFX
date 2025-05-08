@@ -1,4 +1,4 @@
-package appli.accueil;
+package appli.accueil.security;
 
 import appli.StartApplication;
 import javafx.event.ActionEvent;
